@@ -82,7 +82,6 @@ html {
   text-align: center;
   width: 0px;
   float: left;
-  display: inline;
   opacity: 0;
   transition: 0.3s linear;
 }
