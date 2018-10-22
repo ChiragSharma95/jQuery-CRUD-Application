@@ -1,12 +1,12 @@
 // Strike through functionality
 
-$("li").click(function() {
+$("ul").on("click", "li", function() {
   $(this).toggleClass("done");
 });
 
 // Deleting functionality
 
-$("span").click(function(event) {
+$("ul").on("click", "span", function(event) {
   $(this)
     .parent()
     .fadeOut(200, function() {
@@ -16,3 +16,20 @@ $("span").click(function(event) {
 });
 
 // Adding functionality
+
+$("input").keypress(function(event) {
+  if (event.which === 13) {
+    var task = $("input").val();
+    $("ul").append(
+      "<li><span class='delete'><i class='fa fa-trash'></i></span> " +
+        task +
+        "</li>"
+    );
+    $("input").val("");
+  }
+});
+
+// Toggling the input form
+$("#add").click(function() {
+  $("input").fadeToggle();
+});
